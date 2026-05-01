@@ -1,0 +1,51 @@
+coditem,b,item,key,option1,option2,option3,option4
+Q01,-2.0,What particle carries electric charge in a wire?,1,electron,proton,neutron,photon
+Q02,-2.0,What is the unit of electric current?,2,volt,ampere,ohm,watt
+Q03,-2.0,What is the unit of voltage?,1,volt,ampere,ohm,watt
+Q04,-2.0,What is the unit of resistance?,3,volt,ampere,ohm,watt
+Q05,-2.0,What device is used to limit current in a circuit?,2,capacitor,resistor,inductor,transistor
+Q06,-1.5,What flows through a conductor when a circuit is closed?,1,current,voltage,resistance,power
+Q07,-1.5,Which terminal of a battery has excess electrons?,2,positive,negative,neutral,ground
+Q08,-1.5,What happens to LED if connected without a resistor?,3,dims,blinks,burns,nothing
+Q09,-1.5,Which Arduino pin type reads analog values?,1,analog,digital,PWM,serial
+Q10,-1.5,What does LED stand for?,2,Light Emitting Device,Light Emitting Diode,Low Energy Diode,Linear Electric Diode
+Q11,-1.0,Which law relates voltage current and resistance?,3,Kirchhoff's Law,Faraday's Law,Ohm's Law,Coulomb's Law
+Q12,-1.0,What component converts electrical energy to light?,1,LED,LDR,LCD,Laser
+Q13,-1.0,What Arduino function is used to set pin mode?,2,setMode,pinMode,digitalMode,configPin
+Q14,-1.0,Which pin is used to power Arduino at 5V?,1,5V,VIN,3.3V,AREF
+Q15,-1.0,What sensor is used to detect light intensity?,4,LED,PIR,Ultrasonic,LDR
+Q16,-0.5,What happens to current if resistance increases?,2,increases,decreases,stays same,doubles
+Q17,-0.5,What component stores electrical energy?,3,resistor,inductor,capacitor,diode
+Q18,-0.5,Which Arduino function outputs digital HIGH or LOW?,1,digitalWrite,digitalRead,analogWrite,pinMode
+Q19,-0.5,What sensor measures distance using sound?,4,IR sensor,Optical sensor,Magnetic sensor,Ultrasonic sensor
+Q20,-0.5,Which Arduino board is commonly used for beginners?,2,Mega,Uno,Nano,Due
+Q21,0.0,What is the typical voltage output of an Arduino UNO?,3,3.3V,12V,5V,9V
+Q22,0.0,What component converts sound signals to electrical signals?,1,microphone,speaker,buzzer,amplifier
+Q23,0.0,What does PWM stand for?,2,Power Wave Modulation,Pulse Width Modulation,Parallel Wire Mode,Positive Wave Mode
+Q24,0.0,Which Arduino function reads analog sensor values?,4,digitalRead,analogWrite,pinMode,analogRead
+Q25,0.0,What type of signal does a buzzer produce?,1,sound,light,heat,motion
+Q26,0.5,Which formula gives electrical power?,3,V/I,I/V,V×I,V+I
+Q27,0.5,What happens to LED brightness if current increases?,2,decreases,increases,stays same,flickers
+Q28,0.5,Which Arduino pins support PWM?,1,pins with ~ symbol,all digital pins,all analog pins,only pin 13
+Q29,0.5,What sensor is commonly used to measure temperature?,4,DHT11,DS18B20,BMP280,LM35
+Q30,0.5,Which protocol is used by ultrasonic sensors?,2,I2C,Trigger-Echo,SPI,UART
+Q31,1.0,Why are pull-up resistors used?,3,increase current,reduce voltage,stabilize input,store charge
+Q32,1.0,What happens if voltage exceeds LED rating?,1,damage occurs,nothing happens,it dims,it blinks
+Q33,1.0,Which Arduino function creates delay?,2,wait,delay,pause,sleep
+Q34,1.0,What does ADC stand for?,4,Analog Device Control,Automatic Data Conversion,Advanced Digital Circuit,Analog to Digital Converter
+Q35,1.0,Which sensor detects motion using infrared?,1,PIR,LDR,Ultrasonic,Thermistor
+Q36,1.5,Why is common ground important in circuits?,3,increases voltage,reduces current,provides reference voltage,stores energy
+Q37,1.5,What happens when two resistors are in series?,2,resistance decreases,resistance increases,voltage decreases,current increases
+Q38,1.5,What happens when two resistors are in parallel?,1,resistance decreases,resistance increases,voltage increases,current decreases
+Q39,1.5,What does I2C stand for?,4,Internal Integrated Circuit,Intelligent Input Circuit,Indirect Interface Control,Inter-Integrated Circuit
+Q40,1.5,Which component protects circuits from overcurrent?,2,resistor,fuse,capacitor,diode
+Q41,2.0,Why is PWM used instead of analog voltage?,3,cheaper,simpler,more efficient,faster
+Q42,2.0,What causes noise in audio circuits?,1,interference,low voltage,high resistance,capacitance
+Q43,2.0,What is the main purpose of decoupling capacitors?,4,increase voltage,store energy,amplify signal,reduce noise
+Q44,2.0,Which Arduino library is used for servo motors?,2,Motor,Servo,PWM,Control
+Q45,2.0,What sensor uses time-of-flight principle?,1,ultrasonic,PIR,LDR,thermistor
+Q46,2.2,Why must ADC reference voltage be stable?,3,speed,cost,accuracy,simplicity
+Q47,2.2,What happens if sensor ground is floating?,2,correct reading,incorrect reading,no reading,faster reading
+Q48,2.2,Why use external power supply for motors?,4,lower voltage,higher voltage,lower cost,high current demand
+Q49,2.2,What is the role of transistor in Arduino projects?,1,switching,storing,measuring,displaying
+Q50,2.2,Why should grounds of modules be connected?,3,increase speed,reduce cost,common reference,amplify signal
