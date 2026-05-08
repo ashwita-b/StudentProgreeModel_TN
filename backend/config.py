@@ -44,6 +44,9 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     PERMANENT_SESSION_LIFETIME = timedelta(hours=2)
+    SESSION_COOKIE_SAMESITE = "None"   # Required for cross-origin cookies
+    SESSION_COOKIE_SECURE = True        # Required when SameSite=None
+    SESSION_COOKIE_HTTPONLY = True
 
     MAX_ITEMS = 18
     SEM_THRESHOLD = 0.6

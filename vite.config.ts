@@ -9,7 +9,6 @@ export default defineConfig({
       '/api': {
         // Your Render Backend URL
         target: 'https://studentprogreessmodel-backend.onrender.com/', 
-        changeOrigin: true,
       },
     },
   },
