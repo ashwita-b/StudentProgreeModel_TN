@@ -7,7 +7,8 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        // Your Render Backend URL
+        target: 'https://studentprogreessmodel-backend.onrender.com/', 
         changeOrigin: true,
       },
     },
