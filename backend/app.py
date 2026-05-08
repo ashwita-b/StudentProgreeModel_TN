@@ -4,6 +4,9 @@
 # IMPORT REQUIRED LIBRARIES
 # ============================
 import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from flask import Flask, request, jsonify, session, Response
 from flask_cors import CORS
@@ -12,13 +15,10 @@ from models import db, User, TestSession, Response as UserResponse
 from adaptive_test import AdaptiveTest
 from config import Config, ALLOWED_SCHOOLS, MODULES
 from datetime import datetime
-import os
 import re
 import random
 import csv
 from io import StringIO
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # ============================
 # INITIALIZE FLASK APPLICATION
