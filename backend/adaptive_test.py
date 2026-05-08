@@ -82,7 +82,6 @@ class AdaptiveTest:
 
         self.theta, self.sem = self.estimate_ability()
 
-        # Clear current after submit
         submitted_question = self.current_question
         self.current_question = None
 
@@ -139,17 +138,12 @@ class AdaptiveTest:
             return None
 
         standardized = round(((self.theta - 1.4) / 1.5) * 15 + 100)
-
-        # Example aggregation - replace with actual logic if available
         num_correct = sum(self.responses)
         accuracy = (num_correct / len(self.responses) * 100) if self.responses else 0
 
+        # Only valid IRT-derived metrics
         parametric_values = {
-            'comprehension': accuracy,
-            'analytical_thinking': (self.theta + 1.5) * 50,  # arbitrary example
-            'problem_solving': 100 - (self.sem * 10),
-            'speed_efficiency': len(self.responses) / self.max_items * 100,
-            'consistency': 100 - (max(self.difficulties) - min(self.difficulties)) * 10 if self.difficulties else 80,
+            'accuracy': round(accuracy, 1),
         }
 
         return {
@@ -163,5 +157,5 @@ class AdaptiveTest:
             'difficulties': self.difficulties,
             'item_codes': self.item_codes,
             'questions_asked': self.questions_asked,
-            'parametric_values': parametric_values  # now with numbers
+            'parametric_values': parametric_values,
         }

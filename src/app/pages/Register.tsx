@@ -1,16 +1,24 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { GraduationCap, Lock, Mail, User, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react';
+import { GraduationCap, Lock, Mail, User, ArrowRight, AlertCircle, CheckCircle, School as SchoolIcon } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { apiService } from '../services/api';
+import logo from "../../assets/technova-logo.png";
+
+const SCHOOLS = [
+  "Anant English School, Siddhipur",
+  "LRI School, Kalanki",
+  "MBBS, Hetauda",
+];
 
 export default function Register() {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [school, setSchool] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
@@ -20,12 +28,22 @@ export default function Register() {
     e.preventDefault();
     setError('');
 
-    // Validation
+    if (!name.trim() || name.trim().length < 2) {
+      setError('Full name must be at least 2 characters');
+      return;
+    }
+    if (!school) {
+      setError('Please select your school');
+      return;
+    }
     if (password.length < 6) {
       setError('Password must be at least 6 characters long');
       return;
     }
-
+    if (!/[A-Za-z]/.test(password) || !/[0-9]/.test(password)) {
+      setError('Password must contain at least one letter and one number');
+      return;
+    }
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
@@ -33,21 +51,22 @@ export default function Register() {
 
     setIsLoading(true);
 
-    const response = await apiService.register(email, password, name);
-    
+    const response = await apiService.register(email, password, name, school);
     if (response.error) {
       setError(response.error);
       setIsLoading(false);
       return;
     }
 
-    // Auto-login after registration
     const loginResponse = await apiService.login(email, password);
     if (loginResponse.data?.user) {
       localStorage.setItem('currentUser', JSON.stringify(loginResponse.data.user));
       navigate('/student');
+    } else {
+      setError('Registration succeeded but login failed. Please sign in.');
+      navigate('/');
     }
-    
+
     setIsLoading(false);
   };
 
@@ -61,34 +80,26 @@ export default function Register() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        {/* Logo and Header */}
         <div className="text-center mb-8">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl mb-4 shadow-lg"
+            className="inline-flex items-center justify-center w-14 h-14 border border-gray-300 rounded-xl shadow-sm"
           >
-            <GraduationCap className="w-8 h-8 text-white" />
+            <img src={logo} alt="Technova Logo" className="w-full h-full object-contain" />
           </motion.div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Join Technova
-          </h1>
-          <p className="text-gray-600">
-            Start your learning journey today
-          </p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Join Technova</h1>
+          <p className="text-gray-600">Start your learning journey today</p>
         </div>
 
-        {/* Registration Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
           className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
         >
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-            Create Account
-          </h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Create Account</h2>
 
           {error && (
             <motion.div
@@ -102,10 +113,9 @@ export default function Register() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Full Name */}
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-gray-700">
-                Full Name
-              </Label>
+              <Label htmlFor="name" className="text-gray-700">Full Name</Label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
@@ -120,10 +130,29 @@ export default function Register() {
               </div>
             </div>
 
+            {/* School */}
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-gray-700">
-                Email Address
-              </Label>
+              <Label htmlFor="school" className="text-gray-700">School</Label>
+              <div className="relative">
+                <SchoolIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 z-10 pointer-events-none" />
+                <select
+                  id="school"
+                  value={school}
+                  onChange={(e) => setSchool(e.target.value)}
+                  required
+                  className="w-full pl-11 h-12 bg-gray-50 border border-gray-200 rounded-md focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors text-gray-900 text-sm appearance-none"
+                >
+                  <option value="">Select your school...</option>
+                  {SCHOOLS.map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-gray-700">Email Address</Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
@@ -138,16 +167,15 @@ export default function Register() {
               </div>
             </div>
 
+            {/* Password */}
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-gray-700">
-                Password
-              </Label>
+              <Label htmlFor="password" className="text-gray-700">Password</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
                   id="password"
                   type="password"
-                  placeholder="••••••••"
+                  placeholder="Min. 6 chars with a letter and number"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -163,10 +191,9 @@ export default function Register() {
               )}
             </div>
 
+            {/* Confirm Password */}
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-gray-700">
-                Confirm Password
-              </Label>
+              <Label htmlFor="confirmPassword" className="text-gray-700">Confirm Password</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
@@ -207,17 +234,13 @@ export default function Register() {
           <div className="mt-6 text-center">
             <p className="text-gray-600">
               Already have an account?{' '}
-              <Link
-                to="/"
-                className="text-purple-600 hover:text-purple-700 font-medium transition-colors"
-              >
+              <Link to="/" className="text-purple-600 hover:text-purple-700 font-medium transition-colors">
                 Sign in here
               </Link>
             </p>
           </div>
         </motion.div>
 
-        {/* Footer */}
         <p className="text-center text-gray-500 text-sm mt-6">
           Technova Hardware & I.T. Solutions
         </p>
