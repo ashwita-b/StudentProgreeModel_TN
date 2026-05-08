@@ -52,5 +52,6 @@ class Config:
     _cors_env = os.environ.get('CORS_ORIGINS', '')
     CORS_ORIGINS = [origin.strip() for origin in _cors_env.split(',') if origin.strip()] if _cors_env else [
         "http://localhost:5173",
-        "http://127.0.0.1:5173"
+        "http://127.0.0.1:5173",
+        "https://student-progree-model-tn.vercel.app" 
     ]
