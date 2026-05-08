@@ -332,8 +332,8 @@ function ReportCard({
       <div className="bg-white border-b shadow-sm">
         <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-              <GraduationCap className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 border border-gray-300 rounded-xl flex items-center justify-center bg-white overflow-hidden">
+            <img src={logo} alt="Technova Logo" className="w-9 h-9 object-contain" />
             </div>
             <div>
               <p className="font-bold text-gray-900">Technova Education</p>
@@ -564,8 +564,8 @@ function TestScreen({
       <div className="bg-white border-b shadow-sm">
         <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-              <GraduationCap className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 border border-gray-300 rounded-xl flex items-center justify-center bg-white overflow-hidden">
+              <img src={logo} alt="Technova Logo" className="w-9 h-9 object-contain" />
             </div>
             <div>
               <p className="font-bold text-gray-900">Adaptive Assessment</p>
