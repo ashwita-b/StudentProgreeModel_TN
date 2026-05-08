@@ -130,10 +130,10 @@ npm run dev
 
 | Variable | Default |
 |----------|--------|
-| SECRET_KEY | technova-education-secret-key-2026 |
+|FLASK_ENV|  |production|
+| SECRET_KEY | 2026 |
 | DATABASE_URL | sqlite:///exam.db |
 | CORS_ORIGINS | localhost:5173 |
-| PORT | 5000 |
 
 ---
 
