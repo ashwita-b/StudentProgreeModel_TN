@@ -130,7 +130,7 @@ npm run dev
 
 | Variable | Default |
 |----------|--------|
-|FLASK_ENV|  |production|
+|FLASK_ENV| production|
 | SECRET_KEY | 2026 |
 | DATABASE_URL | sqlite:///exam.db |
 | CORS_ORIGINS | localhost:5173 |
