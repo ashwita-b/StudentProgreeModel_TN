@@ -1,6 +1,6 @@
-// ======================================================
-// API SERVICE - Technova Education
-// ======================================================
+// api.ts — FIXED
+// Added getMyResults() — student-scoped endpoint that returns only the
+// calling user's completed sessions, one entry per module.
 
 const API_URL = import.meta.env.VITE_API_URL || "";
 
@@ -34,6 +34,18 @@ export interface ModuleInfo {
   already_taken: boolean;
 }
 
+// Shape returned by /api/admin/students (student-scoped) and /api/my/results
+export interface MyModuleResult {
+  module_id: string;
+  module_label: string;
+  session_id: number;
+  score: number;
+  total_questions: number;
+  accuracy: number;
+  standardized_score: number;
+  completed_at: string | null;
+}
+
 class ApiService {
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<ApiResponse<T>> {
     try {
@@ -55,7 +67,7 @@ class ApiService {
     }
   }
 
-  // AUTH
+  // ── AUTH ────────────────────────────────────────────────────────
   async login(email: string, password: string) {
     return this.request("/api/auth/login", {
       method: "POST",
@@ -82,7 +94,7 @@ class ApiService {
     return this.request<{ schools: string[] }>("/api/schools");
   }
 
-  // MODULES
+  // ── MODULES ─────────────────────────────────────────────────────
   async getModules() {
     return this.request<ModuleInfo[]>("/api/modules");
   }
@@ -95,7 +107,18 @@ class ApiService {
     return this.request(`/api/admin/modules/${moduleId}/lock`, { method: "POST" });
   }
 
-  // TEST
+  // ── STUDENT RESULTS ─────────────────────────────────────────────
+  /**
+   * Returns the current student's completed sessions (one per module).
+   * Works for students only — the backend scopes to current_user.
+   * This is the preferred way to populate per-module score chips
+   * on the module select screen.
+   */
+  async getMyResults() {
+    return this.request<MyModuleResult[]>("/api/my/results");
+  }
+
+  // ── TEST ────────────────────────────────────────────────────────
   async startTest(moduleId: string) {
     return this.request("/api/test/start", {
       method: "POST",
@@ -134,11 +157,15 @@ class ApiService {
     return this.request<TestResult>("/api/test_result");
   }
 
-  // ADMIN
+  // ── ADMIN ────────────────────────────────────────────────────────
   async getAdminStats() {
     return this.request("/api/admin/stats");
   }
 
+  /**
+   * For examiners: returns all students (optionally filtered by school).
+   * For students: returns only their own sessions (backend scoped).
+   */
   async getAllStudents(school?: string) {
     const query = school ? `?school=${encodeURIComponent(school)}` : "";
     return this.request(`/api/admin/students${query}`);

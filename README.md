@@ -184,21 +184,7 @@ Password: admin123
 
 ---
 
-## Production Tips
-
-- Use PostgreSQL instead of SQLite
-- Set strong SECRET_KEY
-- Configure proper CORS
-- Use Gunicorn with reverse proxy
-
----
-
-## Support
-
-Open an issue in the repository for bugs or feature requests.
 
 
-
-
-Render backend: https://studentprogreessmodel-backend.onrender.com/
-vercel : https://student-progree-model-tn.vercel.app/
+Render backend: https://studentprogreessmodel-backend.onrender.com
+vercel : https://adaptivetest.vercel.app
