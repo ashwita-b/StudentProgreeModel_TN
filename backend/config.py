@@ -56,5 +56,5 @@ class Config:
     CORS_ORIGINS = [origin.strip() for origin in _cors_env.split(',') if origin.strip()] if _cors_env else [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
-        "https://adaptivetest.vercel.app/" 
+        "https://adaptivetest.vercel.app" 
     ]
