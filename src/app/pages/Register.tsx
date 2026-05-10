@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { GraduationCap, Lock, Mail, User, ArrowRight, AlertCircle, CheckCircle, School as SchoolIcon } from 'lucide-react';
+import { Lock, Mail, User, ArrowRight, AlertCircle, CheckCircle, School as SchoolIcon } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
