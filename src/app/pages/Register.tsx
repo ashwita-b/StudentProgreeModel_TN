@@ -9,9 +9,36 @@ import { apiService } from '../services/api';
 import logo from "../../assets/technova-logo.png";
 
 const SCHOOLS = [
-  "Anant English School, Siddhipur",
-  "LRI School, Kalanki",
-  "MBBS, Hetauda",
+  "Ullens School",
+  "Kathmandu International School",
+  "DAV Sushil Kedia Vishwa Bharati",
+  "Millsberry School",
+  "Lincoln School",
+  "Euro School",
+  "Modern School",
+  "Sahara Rastriya Vidhyalaya",
+  "Shree Padma Secondary School",
+  "Sainik Awasiya Mahavidyalaya",
+  "Arniko Secondary School",
+  "Janapremi World School",
+  "United Academy",
+  "Premier International School",
+  "St. Xavier’s School,Ktm",
+  "Nightingale International Secondary School",
+  "Caribbean Secondary School",
+  "GEMS School",
+  "Narayani Model Secondary School",
+  "Laxmi Secondary School",
+  "Aroma English Secondary School",
+  "Shree Himalaya Dandapani Neupane Secondary School",
+  "Valmiki Shiksha Sadan",
+  "Gurukul Secondary School",
+  "Adhunik Rastriya Secondary School",
+  "Nirmal Secondary School",
+  "Solidarity International Academy Secondary School",
+  "Janapriya Secondary School",
+  "Tulasi Mehar Memorial English Awasiya Secondary School",
+  "Makawanpur Sunrise English Boarding School",
 ];
 
 export default function Register() {
@@ -142,7 +169,7 @@ export default function Register() {
                   required
                   className="w-full pl-11 h-12 bg-gray-50 border border-gray-200 rounded-md focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors text-gray-900 text-sm appearance-none"
                 >
-                  <option value="">Select your school...</option>
+                  <option value="">Select your school</option>
                   {SCHOOLS.map((s) => (
                     <option key={s} value={s}>{s}</option>
                   ))}
@@ -158,7 +185,7 @@ export default function Register() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="example@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -175,7 +202,7 @@ export default function Register() {
                 <Input
                   id="password"
                   type="password"
-                  placeholder="Min. 6 chars with a letter and number"
+                  placeholder="Min 6 chars with a letter and number"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required

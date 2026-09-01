@@ -43,9 +43,9 @@ class Config:
     database_url = os.environ.get('DATABASE_URL')
 
     if database_url and database_url.startswith("postgres://"):
-        database_url = database_url.replace("postgres://", "postgresql://", 1)
+        database_url = database_url.replace("postgres://", "postgresql://", 1) #it is used for web deployment that allows multiple user to acess at time and it is more secure than sqlite. It is also used for production environment. It is not used for local development because it requires additional setup and configuration.
 
-    SQLALCHEMY_DATABASE_URI = database_url or 'sqlite:///exam.db'
+    SQLALCHEMY_DATABASE_URI = database_url or 'sqlite:///exam.db' #Default to SQLite if DATABASE_URL is not set
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     PERMANENT_SESSION_LIFETIME = timedelta(hours=2)
