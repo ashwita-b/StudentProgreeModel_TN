@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Lock, Mail, User, ArrowRight, AlertCircle, CheckCircle, School as SchoolIcon } from 'lucide-react';
@@ -8,41 +8,9 @@ import { Label } from '../components/ui/label';
 import { apiService } from '../services/api';
 import logo from "../../assets/technova-logo.png";
 
-const SCHOOLS = [
-  "Ullens School",
-  "Kathmandu International School",
-  "DAV Sushil Kedia Vishwa Bharati",
-  "Millsberry School",
-  "Lincoln School",
-  "Euro School",
-  "Modern School",
-  "Sahara Rastriya Vidhyalaya",
-  "Shree Padma Secondary School",
-  "Sainik Awasiya Mahavidyalaya",
-  "Arniko Secondary School",
-  "Janapremi World School",
-  "United Academy",
-  "Premier International School",
-  "St. Xavier’s School,Ktm",
-  "Nightingale International Secondary School",
-  "Caribbean Secondary School",
-  "GEMS School",
-  "Narayani Model Secondary School",
-  "Laxmi Secondary School",
-  "Aroma English Secondary School",
-  "Shree Himalaya Dandapani Neupane Secondary School",
-  "Valmiki Shiksha Sadan",
-  "Gurukul Secondary School",
-  "Adhunik Rastriya Secondary School",
-  "Nirmal Secondary School",
-  "Solidarity International Academy Secondary School",
-  "Janapriya Secondary School",
-  "Tulasi Mehar Memorial English Awasiya Secondary School",
-  "Makawanpur Sunrise English Boarding School",
-];
-
 export default function Register() {
   const navigate = useNavigate();
+  const [schools, setSchools] = useState<string[]>([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [school, setSchool] = useState('');
@@ -50,6 +18,17 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const loadSchools = async () => {
+      const response = await apiService.getSchools();
+      if (response.data?.schools) {
+        setSchools(response.data.schools);
+      }
+    };
+
+    void loadSchools();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -170,7 +149,7 @@ export default function Register() {
                   className="w-full pl-11 h-12 bg-gray-50 border border-gray-200 rounded-md focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors text-gray-900 text-sm appearance-none"
                 >
                   <option value="">Select your school</option>
-                  {SCHOOLS.map((s) => (
+                  {schools.map((s) => (
                     <option key={s} value={s}>{s}</option>
                   ))}
                 </select>
