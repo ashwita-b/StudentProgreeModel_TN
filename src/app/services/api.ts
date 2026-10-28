@@ -46,6 +46,19 @@ export interface MyModuleResult {
   completed_at: string | null;
 }
 
+export function sortSchools(schools: string[]) {
+  const sorted = [...schools].sort((a, b) => a.localeCompare(b, undefined, {
+    sensitivity: 'base',
+    ignorePunctuation: true,
+  }));
+  const meesIndex = sorted.indexOf('M.E.E.S');
+  if (meesIndex !== -1 && sorted.includes('MBBS, Hetauda')) {
+    sorted.splice(meesIndex, 1);
+    sorted.splice(sorted.indexOf('MBBS, Hetauda') + 1, 0, 'M.E.E.S');
+  }
+  return sorted;
+}
+
 class ApiService {
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<ApiResponse<T>> {
     try {

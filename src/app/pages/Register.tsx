@@ -5,12 +5,13 @@ import { Lock, Mail, User, ArrowRight, AlertCircle, CheckCircle, School as Schoo
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
-import { apiService } from '../services/api';
+import { apiService, sortSchools } from '../services/api';
 import logo from "../../assets/technova-logo.png";
 
 export default function Register() {
   const navigate = useNavigate();
   const [schools, setSchools] = useState<string[]>([]);
+  const [schoolLoadError, setSchoolLoadError] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [school, setSchool] = useState('');
@@ -24,6 +25,8 @@ export default function Register() {
       const response = await apiService.getSchools();
       if (response.data?.schools) {
         setSchools(response.data.schools);
+      } else if (response.error) {
+        setSchoolLoadError(response.error);
       }
     };
 
@@ -144,16 +147,19 @@ export default function Register() {
                 <select
                   id="school"
                   value={school}
-                  onChange={(e) => setSchool(e.target.value)}
+                  onChange={(e) => setSchool(e.currentTarget.value)}
                   required
                   className="w-full pl-11 h-12 bg-gray-50 border border-gray-200 rounded-md focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors text-gray-900 text-sm appearance-none"
                 >
                   <option value="">Select your school</option>
-                  {schools.map((s) => (
+                  {sortSchools(schools).map((s) => (
                     <option key={s} value={s}>{s}</option>
                   ))}
                 </select>
               </div>
+              {schoolLoadError && (
+                <p className="text-sm text-red-600" role="alert">{schoolLoadError}</p>
+              )}
             </div>
 
             {/* Email */}

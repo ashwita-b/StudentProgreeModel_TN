@@ -37,18 +37,19 @@ ALLOWED_SCHOOLS = ["M.B.B.S. School",
     "Anant English School, Siddhipur",
     "LRI School, Kalanki",
     "MBBS, Hetauda",
+    "M.E.E.S",
 ]
 
 # Module definitions - label shown in UI and CSV file to use
 MODULES = {
     "module1": {
-        "label": "Module 1",
+        "label": "Pre-Assessment",
         "description": "Month 1 Test",
         "csv_file": "module1_mcq.csv",
         "unlocked": True,
     },
     "module2": {
-        "label": "Module 2",
+        "label": "Post-Assessment",
         "description": "Month 2 Test",
         "csv_file": "module2_mcq.csv",
         "unlocked": False,

@@ -1,0 +1,51 @@
+coditem	b	item	key	option1	option2	option3	option4
+Q01	-0.5	What is the main purpose of a battery in a simple electrical device?	1	To provide electrical energy	To measure temperature	To store sound	To detect light
+Q02	-0.5	Which material is generally a good electrical conductor?	2	Rubber	Copper	Dry wood	Plastic
+Q03	-0.5	What usually needs to happen for a simple bulb circuit to work?	3	The wires must be different colours	The battery must be removed	The circuit must form a complete path	The bulb must be covered
+Q04	-0.5	What is the main purpose of an LED?	4	To measure distance	To store water	To increase sound	To produce light
+Q05	0	Which unit is commonly used to measure temperature?	1	Degrees Celsius	Metres	Litres	Kilograms
+Q06	0	Which device is designed to detect or measure a condition in its surroundings?	2	A hinge	A sensor	A screw	A wheel
+Q07	0	"If a small bulb does not light, what is a sensible first step?"	3	Add water to the circuit	Assume the bulb is always broken	Check whether the connections and power source are correct	Touch bare wires together
+Q08	0	Which of these is an example of an output from an electronic system?	4	A sensor noticing light	A button being pressed	A temperature being measured	An LED turning on
+Q09	0.5	What does a switch commonly do in an electrical circuit?	1	Opens or closes the circuit	Measures the mass of a battery	Changes sound into water	Stores a program permanently
+Q10	0.5	Why is it useful to test a design after building it?	2	Testing makes every design work immediately	Testing helps reveal problems and whether the design works	Testing replaces the need for a plan	Testing is only useful after a project is thrown away
+Q11	-0.5	"In an Arduino program, what does pinMode(pin, OUTPUT) generally do?"	1	Sets a pin so the board can use it as an output	Measures humidity	Prints a message automatically	Connects the board to Bluetooth
+Q12	-0.5	Which Arduino function runs repeatedly after setup() has finished?	2	begin()	loop()	stop()	repeatSetup()
+Q13	-0.5	Which sensor is commonly used to measure temperature and humidity in the bootcamp?	3	LDR	HC-05	DHT11	Servo motor
+Q14	-0.5	What is the main purpose of an ultrasonic sensor in a smart dustbin project?	4	To display letters	To measure soil moisture	To connect to Wi-Fi	To detect the distance to a nearby object
+Q15	0	Which Arduino feature lets a student view text and sensor readings sent by a program over USB?	1	Serial Monitor	Resistor colour bands	Breadboard power rails only	Servo horn
+Q16	0	What is the main purpose of an LDR in a smart streetlight?	2	Measure water level	Detect changes in light intensity	Measure air pressure	Control Bluetooth pairing
+Q17	0	Which component can move to a commanded angle in a simple Arduino project?	3	LDR	Resistor	Servo motor	Breadboard
+Q18	0	"Which device can switch a higher-power load, such as a pump, using a control signal in an appropriate circuit?"	4	LED alone	Jumper wire alone	DHT11 sensor alone	Relay
+Q19	0	What is a variable used for in an Arduino program?	1	To store a value that a program can use	To physically connect two wires	To measure voltage without hardware	To replace every function
+Q20	0	What does an analog input commonly allow an Arduino to read?	2	Only letters from an LCD	A range of signal levels within the board's supported input range	Only Bluetooth names	Only motor rotation direction
+Q21	0	Which display listed in the bootcamp syllabus can show text and numbers?	1	16×2 LCD	HC-05 Bluetooth module	LDR	Servo motor
+Q22	0	Which instrument can be used to measure voltage in a circuit?	2	Ruler	Multimeter	Thermometer	Stopwatch
+Q23	0.5	A smart dustbin should open its lid when a hand comes near. Which pairing best matches the project idea in the syllabus?	1	Ultrasonic sensor and servo motor	DHT11 and resistor only	LDR and multimeter only	LCD and breadboard only
+Q24	0.5	A plant-watering system should respond when soil becomes dry. Which sensor is most directly suited to detecting this condition?	2	Ultrasonic sensor	Soil-moisture sensor	HC-05 Bluetooth module	16×2 LCD
+Q25	0.5	A rain detector should pull clothes under shelter when rain is detected. Which output component is described in the syllabus for moving the mechanism?	3	LDR	DHT11	Servo motor	Serial Monitor
+Q26	0.5	Which sensor named in the syllabus is used in air-quality monitoring?	4	LDR	DHT11 only	Water-level sensor	MQ gas sensor such as MQ135
+Q27	0.5	What is the main role of the HC-05 module in the bootcamp projects?	1	Enable Bluetooth communication with a compatible device	Measure temperature directly	Detect water level	Limit LED current
+Q28	0.5	Why should an AI-generated Arduino program be checked before it is uploaded?	2	AI code never contains mistakes	It may contain errors or assumptions that need testing	Checking code prevents all future debugging	It means hardware connections no longer matter
+Q29	0.5	What is the main purpose of a resistor in a simple LED circuit?	3	Measure distance	Show text on a screen	Help limit the current through the LED	Move a mechanism
+Q30	0.5	Which component is designed to detect changes in light level?	4	Servo motor	HC-05 module	16×2 LCD	LDR
+Q31	0.5	Which component can physically turn or move a small mechanism?	1	Servo motor	LDR	Resistor	LCD
+Q32	0.5	Which sensor listed in the syllabus measures temperature and humidity?	2	MQ gas sensor	DHT11	LDR	RFID reader
+Q33	0.5	"In a sensor-based automation project, what is the sensor's main role?"	3	Move the mechanism directly without a controller	Provide power to every component	Collect information about a condition in the environment	Replace the need for a program in all cases
+Q34	0.5	Which component allows a project to communicate with a compatible phone using Bluetooth?	3	Resistor	LDR	HC-05 module	Breadboard
+Q35	1	A streetlight should turn on when light levels fall below a threshold. Which sequence best describes the control logic?	1	"Read the light sensor, compare the value with a threshold, then control the light"	Turn the light on permanently and ignore the sensor	Read the LCD and use it as the power supply	Move the servo whenever the temperature changes
+Q36	1	A student wants to show a sensor reading on a 16×2 LCD. What must the project generally have?	2	Only a battery with no controller or connections	A correctly connected display and program instructions to send the reading	A Bluetooth module in every case	A relay instead of any display wiring
+Q37	1	A water-level controller is designed to stop a pump when a tank is full. Which combination best describes the system?	3	"LDR, LCD, and a paper switch"	"DHT11, buzzer, and no control logic"	"Water-level sensing, control logic, and a suitable pump-switching arrangement"	HC-05 and a servo used only to display text
+Q38	1	A sensor's readings appear inconsistent. Which action is most appropriate before changing the entire design?	4	Ignore all readings	Assume the sensor is always accurate	Remove the sensor and stop the project	"Check connections, observe repeated readings, and consider calibration"
+Q39	1	A student changes code to make an LED blink faster. Which part of a simple blink program would most directly affect the wait between changes?	1	The delay duration	The name of the project folder only	The colour of the breadboard	The number of LCD rows
+Q40	1	A Bluetooth-controlled system does not respond to a phone command. Which pair of checks is most relevant?	2	Check the resistor colour and room temperature only	Check Bluetooth connection/settings and whether the program handles the received command	Replace the LCD with a soil sensor	Measure the distance with a ruler and stop
+Q41	1	Why is it useful to compare AI-generated code with code a student understands or has tested?	3	The comparison guarantees the AI is always correct	It removes the need to connect hardware	It helps catch errors and understand how the program works	It prevents all possible component failures
+Q42	1	"During a team build, one sensor works but the output does not activate. What is a structured troubleshooting approach?"	4	Rewrite the entire project without testing	Assume the sensor is broken	Change all wires at once	"Check the sensor reading, decision logic, output wiring, and power step by step"
+Q43	1	What is the purpose of a breadboard during electronics activities?	2	Measure air quality	Connect components temporarily without soldering	Display temperature by itself	Move a motor
+Q44	1	Which tool is useful for checking whether a circuit connection is continuous?	4	LCD	Servo motor	DHT11	Multimeter in continuity mode
+Q45	1.5	A circuit's LED does not light. Which basic check is most appropriate first?	1	"Check the power supply, LED direction, and connections"	Add an LCD display	Replace the light sensor even if there is none	Connect the battery terminals directly together
+Q46	1.5	"A project must monitor air quality and temperature, then alert users when a threshold is exceeded. Which design best matches the syllabus?"	4	Use an LDR only and display no results	Use a servo motor to measure gas concentration	Use an HC-05 as the temperature sensor	Use an MQ gas sensor and DHT11 with suitable alert logic and an output such as a buzzer or LCD
+Q47	1.5	Which sensor is suitable for detecting how far away an object is?	2	DHT11	Ultrasonic sensor	LDR	MQ gas sensor
+Q48	1.5	Why should a team test a project after making a design improvement?	2	Any change always improves performance	To verify the change helped and did not introduce another problem	To avoid recording the result	To make debugging unnecessary
+Q49	2	A smart irrigation prototype waters plants even when the soil is already wet. Which improvement best follows a test-and-refine approach?	3	Add a Bluetooth module without changing the logic	Remove all sensor readings	"Check the sensor calibration and threshold logic, then retest under different soil conditions"	Run the pump continuously so the result is predictable
+Q50	2	A team needs to demonstrate that its sensor-controlled system works reliably. Which evidence would be most useful?	4	A project title alone	One unverified claim that it works	A list of components with no tests	Repeated test observations showing input conditions and resulting outputs

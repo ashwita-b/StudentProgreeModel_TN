@@ -1,5 +1,6 @@
 # adaptive_test.py
 import csv
+import io
 import math
 import random
 
@@ -20,20 +21,39 @@ class AdaptiveTest:
         self.current_question = None
 
     def load_items(self):
-        with open(self.csv_file, newline="", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            coditem, b, item, key = [], [], [], []
-            option1, option2, option3, option4 = [], [], [], []
+        with open(self.csv_file, "rb") as f:
+            contents = f.read()
 
-            for row in reader:
-                coditem.append(row["coditem"])
-                b.append(float(row["b"]))
-                item.append(row["item"])
-                key.append(row["key"])
-                option1.append(row["option1"])
-                option2.append(row["option2"])
-                option3.append(row["option3"])
-                option4.append(row["option4"])
+        try:
+            text = contents.decode("utf-8-sig")
+        except UnicodeDecodeError:
+            text = contents.decode("cp1252")
+
+        lines = text.splitlines()
+        if not lines:
+            raise ValueError(f"Assessment file is empty: {self.csv_file}")
+        header = lines[0]
+        delimiter = "\t" if header.count("\t") > header.count(",") else ","
+        reader = csv.DictReader(io.StringIO(text), delimiter=delimiter)
+        required_fields = {
+            "coditem", "b", "item", "key",
+            "option1", "option2", "option3", "option4",
+        }
+        if not reader.fieldnames or not required_fields.issubset(reader.fieldnames):
+            raise ValueError(f"Invalid assessment file format: {self.csv_file}")
+
+        coditem, b, item, key = [], [], [], []
+        option1, option2, option3, option4 = [], [], [], []
+
+        for row in reader:
+            coditem.append(row["coditem"])
+            b.append(float(row["b"]))
+            item.append(row["item"])
+            key.append(row["key"])
+            option1.append(row["option1"])
+            option2.append(row["option2"])
+            option3.append(row["option3"])
+            option4.append(row["option4"])
 
         self.item_db = {
             "coditem": coditem,

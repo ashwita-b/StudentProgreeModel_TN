@@ -14,15 +14,8 @@ import { Badge } from '../components/ui/badge';
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '../components/ui/table';
-import { apiService, ModuleInfo } from '../services/api';
+import { apiService, ModuleInfo, sortSchools } from '../services/api';
 import logo from "../../assets/technova-logo.png";
-
-const SCHOOLS = [
-  "All Schools",
-  "Anant English School, Siddhipur",
-  "LRI School, Kalanki",
-  "MBBS, Hetauda",
-];
 
 interface StudentResult {
   student_id: number;
@@ -319,7 +312,7 @@ function AdminReportModal({ detail, onClose }: { detail: StudentDetail; onClose:
                 {[
                   { l: 'Student Name',   v: detail.student_name },
                   { l: 'School',         v: detail.school },
-                  { l: 'Module',         v: detail.module_label },
+                  { l: 'Assessment',    v: detail.module_label },
                   { l: 'Date Completed', v: dateStr },
                   { l: 'Email',          v: detail.student_email },
                 ].map(({ l, v }) => (
@@ -427,14 +420,17 @@ export default function AdminDashboardFixed() {
   const [user, setUser] = useState<{ name: string } | null>(null);
   const [students, setStudents] = useState<StudentResult[]>([]);
   const [modules, setModules] = useState<ModuleInfo[]>([]);
+  const [schools, setSchools] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [schoolFilter, setSchoolFilter] = useState('All Schools');
+  const [schoolFilterError, setSchoolFilterError] = useState('');
   const [selectedStudent, setSelectedStudent] = useState<StudentDetail | null>(null);
   const [showExportModal, setShowExportModal] = useState(false);
   const [stats, setStats] = useState({
     total_students: 0, completed_tests: 0, average_score: 0, average_questions: 0,
   });
   const [loadingModules, setLoadingModules] = useState<Record<string, boolean>>({});
+  const schoolFilterRequest = useRef(0);
 
   useEffect(() => {
     const stored = localStorage.getItem('currentUser');
@@ -446,19 +442,29 @@ export default function AdminDashboardFixed() {
   }, [navigate]);
 
   const initializeDashboard = async () => {
-    const [statsRes, studentsRes, modulesRes] = await Promise.all([
+    const [statsRes, studentsRes, modulesRes, schoolsRes] = await Promise.all([
       apiService.getAdminStats(),
       apiService.getAllStudents(),
       apiService.getModules(),
+      apiService.getSchools(),
     ]);
     if (statsRes.data)   setStats(statsRes.data as any);
     if (studentsRes.data) setStudents(studentsRes.data as StudentResult[]);
     if (modulesRes.data)  setModules(modulesRes.data as ModuleInfo[]);
+    if (schoolsRes.data) setSchools(schoolsRes.data.schools);
+    else if (schoolsRes.error) setSchoolFilterError(schoolsRes.error);
   };
 
   const handleSchoolFilter = async (school: string) => {
     setSchoolFilter(school);
+    setSchoolFilterError('');
+    const requestId = ++schoolFilterRequest.current;
     const res = await apiService.getAllStudents(school !== 'All Schools' ? school : undefined);
+    if (requestId !== schoolFilterRequest.current) return;
+    if (res.error) {
+      setSchoolFilterError(res.error);
+      return;
+    }
     if (res.data) setStudents(res.data as StudentResult[]);
   };
 
@@ -552,9 +558,9 @@ export default function AdminDashboardFixed() {
           ))}
         </div>
 
-        {/* Module Access Control */}
+        {/* Assessment Access Control */}
         <Card className="p-6 mb-8">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">Module Access Control</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-4">Assessment Access Control</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             {modules.map((mod) => (
               <div
@@ -584,9 +590,9 @@ export default function AdminDashboardFixed() {
                   {loadingModules[mod.id] ? (
                     <span>Loading…</span>
                   ) : mod.unlocked ? (
-                    <><Lock className="w-3 h-3" /> Lock Module</>
+                    <><Lock className="w-3 h-3" /> Lock Assessment</>
                   ) : (
-                    <><Unlock className="w-3 h-3" /> Unlock Module</>
+                    <><Unlock className="w-3 h-3" /> Unlock Assessment</>
                   )}
                 </button>
               </div>
@@ -600,13 +606,16 @@ export default function AdminDashboardFixed() {
             <h2 className="text-lg font-bold text-gray-900">Student Results</h2>
             <div className="flex flex-wrap gap-3 w-full sm:w-auto">
               {/* School filter */}
-              <div className="relative">
+              <div className="relative w-full sm:w-auto">
                 <select
                   value={schoolFilter}
                   onChange={(e) => handleSchoolFilter(e.target.value)}
-                  className="pl-3 pr-8 py-2 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+                  aria-label="Filter results by school"
+                  className="w-full sm:w-auto pl-3 pr-8 py-2 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
                 >
-                  {SCHOOLS.map((s) => <option key={s} value={s}>{s}</option>)}
+                  <option value="All Schools">All Schools</option>
+                  {sortSchools(schools)
+                    .map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
                 <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
@@ -632,6 +641,10 @@ export default function AdminDashboardFixed() {
             </div>
           </div>
 
+          {schoolFilterError && (
+            <p className="mb-4 text-sm text-red-600" role="alert">{schoolFilterError}</p>
+          )}
+
           {filteredStudents.length === 0 ? (
             <p className="text-center text-gray-400 py-8">No student results found.</p>
           ) : (
@@ -641,7 +654,7 @@ export default function AdminDashboardFixed() {
                   <TableRow className="bg-slate-50">
                     <TableHead>Student</TableHead>
                     <TableHead>School</TableHead>
-                    <TableHead>Module</TableHead>
+                    <TableHead>Assessment</TableHead>
                     <TableHead>Score</TableHead>
                     <TableHead>Accuracy</TableHead>
                     <TableHead>Std. Score</TableHead>

@@ -1,51 +1,51 @@
 coditem,b,item,key,option1,option2,option3,option4
-Q01,-2.0,What particle carries electric charge in a wire?,1,electron,proton,neutron,photon
-Q02,-2.0,What is the unit of electric current?,2,volt,ampere,ohm,watt
-Q03,-2.0,What is the unit of voltage?,1,volt,ampere,ohm,watt
-Q04,-2.0,What is the unit of resistance?,3,volt,ampere,ohm,watt
-Q05,-2.0,What device is used to limit current in a circuit?,2,capacitor,resistor,inductor,transistor
-Q06,-1.5,What flows through a conductor when a circuit is closed?,1,current,voltage,resistance,power
-Q07,-1.5,Which terminal of a battery has excess electrons?,2,positive,negative,neutral,ground
-Q08,-1.5,What happens to LED if connected without a resistor?,3,dims,blinks,burns,nothing
-Q09,-1.5,Which Arduino pin type reads analog values?,1,analog,digital,PWM,serial
-Q10,-1.5,What does LED stand for?,2,Light Emitting Device,Light Emitting Diode,Low Energy Diode,Linear Electric Diode
-Q11,-1.0,Which law relates voltage current and resistance?,3,Kirchhoff's Law,Faraday's Law,Ohm's Law,Coulomb's Law
-Q12,-1.0,What component converts electrical energy to light?,1,LED,LDR,LCD,Laser
-Q13,-1.0,What Arduino function is used to set pin mode?,2,setMode,pinMode,digitalMode,configPin
-Q14,-1.0,Which pin is used to power Arduino at 5V?,1,5V,VIN,3.3V,AREF
-Q15,-1.0,What sensor is used to detect light intensity?,4,LED,PIR,Ultrasonic,LDR
-Q16,-0.5,What happens to current if resistance increases?,2,increases,decreases,stays same,doubles
-Q17,-0.5,What component stores electrical energy?,3,resistor,inductor,capacitor,diode
-Q18,-0.5,Which Arduino function outputs digital HIGH or LOW?,1,digitalWrite,digitalRead,analogWrite,pinMode
-Q19,-0.5,What sensor measures distance using sound?,4,IR sensor,Optical sensor,Magnetic sensor,Ultrasonic sensor
-Q20,-0.5,Which Arduino board is commonly used for beginners?,2,Mega,Uno,Nano,Due
-Q21,0.0,What is the typical voltage output of an Arduino UNO?,3,3.3V,12V,5V,9V
-Q22,0.0,What component converts sound signals to electrical signals?,1,microphone,speaker,buzzer,amplifier
-Q23,0.0,What does PWM stand for?,2,Power Wave Modulation,Pulse Width Modulation,Parallel Wire Mode,Positive Wave Mode
-Q24,0.0,Which Arduino function reads analog sensor values?,4,digitalRead,analogWrite,pinMode,analogRead
-Q25,0.0,What type of signal does a buzzer produce?,1,sound,light,heat,motion
-Q26,0.5,Which formula gives electrical power?,3,V/I,I/V,V×I,V+I
-Q27,0.5,What happens to LED brightness if current increases?,2,decreases,increases,stays same,flickers
-Q28,0.5,Which Arduino pins support PWM?,1,pins with ~ symbol,all digital pins,all analog pins,only pin 13
-Q29,0.5,What sensor is commonly used to measure temperature?,4,DHT11,DS18B20,BMP280,LM35
-Q30,0.5,Which protocol is used by ultrasonic sensors?,2,I2C,Trigger-Echo,SPI,UART
-Q31,1.0,Why are pull-up resistors used?,3,increase current,reduce voltage,stabilize input,store charge
-Q32,1.0,What happens if voltage exceeds LED rating?,1,damage occurs,nothing happens,it dims,it blinks
-Q33,1.0,Which Arduino function creates delay?,2,wait,delay,pause,sleep
-Q34,1.0,What does ADC stand for?,4,Analog Device Control,Automatic Data Conversion,Advanced Digital Circuit,Analog to Digital Converter
-Q35,1.0,Which sensor detects motion using infrared?,1,PIR,LDR,Ultrasonic,Thermistor
-Q36,1.5,Why is common ground important in circuits?,3,increases voltage,reduces current,provides reference voltage,stores energy
-Q37,1.5,What happens when two resistors are in series?,2,resistance decreases,resistance increases,voltage decreases,current increases
-Q38,1.5,What happens when two resistors are in parallel?,1,resistance decreases,resistance increases,voltage increases,current decreases
-Q39,1.5,What does I2C stand for?,4,Internal Integrated Circuit,Intelligent Input Circuit,Indirect Interface Control,Inter-Integrated Circuit
-Q40,1.5,Which component protects circuits from overcurrent?,2,resistor,fuse,capacitor,diode
-Q41,2.0,Why is PWM used instead of analog voltage?,3,cheaper,simpler,more efficient,faster
-Q42,2.0,What causes noise in audio circuits?,1,interference,low voltage,high resistance,capacitance
-Q43,2.0,What is the main purpose of decoupling capacitors?,4,increase voltage,store energy,amplify signal,reduce noise
-Q44,2.0,Which Arduino library is used for servo motors?,2,Motor,Servo,PWM,Control
-Q45,2.0,What sensor uses time-of-flight principle?,1,ultrasonic,PIR,LDR,thermistor
-Q46,2.2,Why must ADC reference voltage be stable?,3,speed,cost,accuracy,simplicity
-Q47,2.2,What happens if sensor ground is floating?,2,correct reading,incorrect reading,no reading,faster reading
-Q48,2.2,Why use external power supply for motors?,4,lower voltage,higher voltage,lower cost,high current demand
-Q49,2.2,What is the role of transistor in Arduino projects?,1,switching,storing,measuring,displaying
-Q50,2.2,Why should grounds of modules be connected?,3,increase speed,reduce cost,common reference,amplify signal
+Q01,-0.5,What is the main purpose of a battery in a simple electrical device?,1,To provide electrical energy,To measure temperature,To store sound,To detect light
+Q02,-0.5,Which material is generally a good electrical conductor?,2,Rubber,Copper,Dry wood,Plastic
+Q03,-0.5,What usually needs to happen for a simple bulb circuit to work?,3,The wires must be different colours,The battery must be removed,The circuit must form a complete path,The bulb must be covered
+Q04,-0.5,What is the main purpose of an LED?,4,To measure distance,To store water,To increase sound,To produce light
+Q05,0,Which unit is commonly used to measure temperature?,1,Degrees Celsius,Metres,Litres,Kilograms
+Q06,0,Which device is designed to detect or measure a condition in its surroundings?,2,A hinge,A sensor,A screw,A wheel
+Q07,0,"If a small bulb does not light, what is a sensible first step?",3,Add water to the circuit,Assume the bulb is always broken,Check whether the connections and power source are correct,Touch bare wires together
+Q08,0,Which of these is an example of an output from an electronic system?,4,A sensor noticing light,A button being pressed,A temperature being measured,An LED turning on
+Q09,0.5,What does a switch commonly do in an electrical circuit?,1,Opens or closes the circuit,Measures the mass of a battery,Changes sound into water,Stores a program permanently
+Q10,0.5,Why is it useful to test a design after building it?,2,Testing makes every design work immediately,Testing helps reveal problems and whether the design works,Testing replaces the need for a plan,Testing is only useful after a project is thrown away
+Q11,-2,Which object is commonly used to provide power to a small torch?,1,Battery,Mirror,Ruler,Paper clip
+Q12,-2,Which of these gives off light when it is switched on and working?,2,A wooden block,A light bulb,A magnet,A plastic cup
+Q13,-2,Which sense do we mainly use to detect sound?,3,Smell,Taste,Hearing,Touch
+Q14,-2,Which of these is a source of light in the daytime?,4,A closed book,A stone,A metal spoon,The Sun
+Q15,-2,Which object is most likely to be attracted to a magnet?,1,An iron nail,A rubber band,A paper sheet,A wooden stick
+Q16,-2,What does a thermometer measure?,2,Distance,Temperature,Speed,Electric charge
+Q17,-2,Which material is usually an electrical insulator?,3,Copper,Aluminium,Rubber,Iron
+Q18,-2,What is the main job of a wire in a simple circuit?,4,To create sunlight,To cool the battery,To measure time,To provide a path for electric current
+Q19,-1.5,Which component is commonly used to make a circuit light up?,1,LED,Sponge,Glass marble,Cardboard
+Q20,-1.5,Which object can be used to open or close an electrical circuit?,2,A thermometer,A switch,A magnet only,A ruler
+Q21,-1.5,Which item is commonly used to connect components temporarily when building a circuit?,3,Blank paper,A drinking straw,Jumper wire,A cotton ball
+Q22,-1.5,Which device can help measure the voltage of a battery?,4,A stopwatch,A compass,A weighing scale,A multimeter
+Q23,-1.5,What is a resistor generally used for in a circuit?,1,To limit or control current,To produce rain,To measure length,To generate sound waves
+Q24,-1.5,Which statement about electricity is safest?,2,Touch bare wires to see if they work,Keep away from unsafe or exposed electrical connections,Use wet hands with electrical equipment,Open a wall socket without supervision
+Q25,-1.5,What does a battery-powered torch need in order to light?,3,Only a sticker,A cup of water,A working power source and a complete circuit,A louder sound
+Q26,-1.5,Which of these is a common example of an electronic device?,4,A stone,A leaf,A wooden spoon,A digital thermometer
+Q27,-1,"What is electric current, in simple terms?",1,The flow of electric charge,The brightness of a colour,The weight of a wire,The size of a battery label
+Q28,-1,What does voltage describe in a basic circuit?,2,The colour of a component,Electrical potential difference,The length of a table,The temperature of the room
+Q29,-1,What is the common unit of electric current?,3,Volt,Ohm,Ampere,Watt-hour
+Q30,-1,What is the common unit of voltage?,4,Metre,Ampere,Ohm,Volt
+Q31,-1,Which of these is most likely to be used to build a prototype circuit?,1,Breadboard,Dinner plate,Notebook cover,Measuring jug
+Q32,-1,What is the purpose of a resistor when used with an LED in a simple circuit?,2,To make the LED detect distance,To help limit current through the LED,To turn electricity into water,To replace the power source
+Q33,-1,Which tool is useful for checking whether two points are electrically connected?,3,A ruler,A paintbrush,A multimeter using continuity mode,A spoon
+Q34,-1,Which statement best describes a complete circuit?,4,It has no power source,It contains only plastic parts,It is always switched off,It provides a continuous path for current
+Q35,-0.5,A student wants to find out whether a material conducts electricity. What is a sensible approach?,1,"Use a safe, low-voltage test circuit with supervision",Connect it directly to a wall socket,Taste the material,Heat it until it melts
+Q36,-0.5,Why should a student avoid connecting a battery's terminals directly with a wire?,2,It makes the battery larger,It can cause excessive current and heating,It improves battery life every time,It turns the wire into an insulator
+Q37,-0.5,What does resistance describe in a simple electrical circuit?,3,How bright the room is,How much a component weighs,How much a material or component opposes current,How far sound travels
+Q38,-0.5,"A student sees a battery, wires, and an LED. Which additional component can help protect the LED from excessive current?",4,A paper clip placed across the battery,A glass of water,A second battery connected any way,A suitable resistor
+Q39,0,Why are breadboards useful when learning about circuits?,1,They let components be connected and rearranged without soldering,They generate electricity by themselves,They measure temperature automatically,They replace all wires in every project
+Q40,0,Which tool is most suitable for measuring the voltage across a battery?,2,A ruler,A multimeter set to voltage,A compass,A stopwatch
+Q41,0,A student has a simple LED circuit that does not work. Which action is the best next step?,3,Connect the battery terminals directly,Remove every component and stop,"Check polarity, connections, and battery condition one at a time",Assume the circuit is impossible
+Q42,0,Which is a sensible way to work safely with classroom electronic components?,4,Use damaged batteries without telling anyone,Touch exposed conductors while wet,Force components into sockets,Follow instructions and ask for help if unsure
+Q43,0.5,Why does the orientation of an ordinary LED matter in a basic circuit?,1,It is a diode and is designed to conduct mainly in one direction,It measures room temperature,It stores program instructions,It works only when covered
+Q44,0.5,A student wants to compare the voltage of two batteries. Which approach is most appropriate?,2,Guess based on their colours,Measure each using a multimeter set correctly to voltage,Connect them directly together,Use a ruler to measure their length
+Q45,0.5,A design uses a light-sensitive component to switch a lamp on when the surroundings become dark. Which school-science idea is most relevant?,3,Sound frequency,Magnetic attraction only,Light intensity,Water pressure
+Q46,0.5,Why is it helpful to change only one thing at a time while troubleshooting a simple circuit?,4,It guarantees that no errors can happen,It makes the battery recharge itself,It avoids the need to observe results,It helps identify which change affected the result
+Q47,1,A battery-powered circuit becomes warm after its terminals are accidentally connected directly. What is the most appropriate response?,1,Disconnect it safely and tell the instructor,Keep it connected to see how hot it gets,Hold the wire to test its temperature,Add another battery in parallel without checking
+Q48,1,A student wants to document how a simple circuit is connected so another person can rebuild it. What would help most?,2,A list of favourite colours,A clear circuit sketch with component labels,A photograph of an unrelated object,A paragraph with no component names
+Q49,1,"Two materials look similar, but one conducts electricity and the other does not. What is the best conclusion?",3,Appearance always determines conductivity,Both must conduct equally,Materials can have different electrical properties even if they look similar,Conductivity depends only on colour
+Q50,1,A student measures a battery and obtains an unexpected voltage reading. What should they do first?,4,Immediately dismantle the multimeter,Assume all batteries have the same voltage,Connect the meter across a wall outlet,"Check the meter setting, probe connections, and measurement method"

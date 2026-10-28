@@ -191,8 +191,8 @@ function ModuleSelectScreen({
       <div className="max-w-4xl mx-auto px-4 py-12">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Select a Module</h1>
-            <p className="text-gray-500">Choose the test module assigned by your teacher.</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Select an Assessment</h1>
+            <p className="text-gray-500">Choose the test assigned by your teacher.</p>
           </div>
 
           {error && (
@@ -361,11 +361,11 @@ function ModuleSelectScreen({
                     </p>
                   </div>
 
-                  {/* Student + Module info */}
+                  {/* Student + Assessment info */}
                   <div className="bg-slate-50 rounded-xl p-4 space-y-2 border border-slate-100">
                     <InfoRow label="Student"  value={user.name} />
                     <InfoRow label="School"   value={user.school} />
-                    <InfoRow label="Module"   value={selectedForView.label} />
+                    <InfoRow label="Assessment" value={selectedForView.label} />
                     <InfoRow label="Status"   value="✓ Completed" valueClass="text-green-600 font-bold" />
                   </div>
 
@@ -588,7 +588,7 @@ function ReportCard({
               {[
                 { label: 'Student Name',   value: user.name },
                 { label: 'School',         value: user.school },
-                { label: 'Module',         value: moduleLabel },
+                { label: 'Assessment',    value: moduleLabel },
                 { label: 'Date Completed', value: dateStr },
                 { label: 'Email',          value: user.email },
               ].map(({ label, value }) => (
